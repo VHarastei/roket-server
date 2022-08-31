@@ -12,7 +12,7 @@ export class PageOptionsDto {
     const limit = +size || 10;
     const offset = page * limit || 0;
 
-    this.page = page;
+    this.page = +page;
     this.limit = limit;
     this.offset = offset;
   }
