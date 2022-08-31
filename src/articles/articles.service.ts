@@ -14,15 +14,15 @@ export class ArticlesService {
   ) {}
 
   async findOne(id: string): Promise<Article> {
-    return this.articlesRepository.findByPk<Article>(id);
+    return this.articlesRepository.findByPk<Article>(id, {
+      attributes: { exclude: ['date', 'shortDescription'] },
+    });
   }
 
   async getNews(
     categoryId: string,
     options: PageOptionsDtoParameters,
   ): Promise<PageDto<Article>> {
-    console.log(options);
-
     const { limit, offset, page } = new PageOptionsDto(options);
 
     const { rows, count } =
@@ -30,6 +30,7 @@ export class ArticlesService {
         where: { categoryId },
         limit,
         offset,
+        attributes: { exclude: ['fullDescription'] },
       });
 
     return new PageDto({ rows, count, limit, page });
