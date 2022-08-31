@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "roket",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": "5433"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
